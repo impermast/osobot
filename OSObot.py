@@ -7,7 +7,7 @@
 
 import discord
 import datetime
-from datetime import datetime
+from datetime import datetime, timedelta
 import asyncio
 
 from dotenv import load_dotenv
@@ -57,6 +57,7 @@ class BotClient(discord.Client):
         print('[COMAND] !emb')
         #Сообщение в системный чат
         dt=datetime.now()
+        dt=dt+timedelta(hours=3)
         await client.get_channel(IdChSystem).send('{} вступил в {}.'.format(member.mention, dt.strftime("%H:%M:%S %d %B")))
         #Создание задержки
         await asyncio.sleep(1.5)
@@ -69,6 +70,7 @@ class BotClient(discord.Client):
         if react.message_id == IdMsgRules:
             print('RoleCheck')
             dt=datetime.now()
+            dt=dt+timedelta(hours=3)
             memb = react.member
             
             for emj, idi in EmojiList.items():
@@ -85,6 +87,7 @@ class BotClient(discord.Client):
             sys = client.get_channel(IdChSystem)
             memb = guild.get_member(react.user_id)
             dt=datetime.now()
+            dt=dt+timedelta(hours=3)
             
             for emj, idi in EmojiList.items():
               if react.emoji.name == emj:  
