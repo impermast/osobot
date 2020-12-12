@@ -54,13 +54,11 @@ class BotClient(discord.Client):
         print('Logged on as', self.user)
 
     async def on_member_join(self, member):
-        print('[COMAND] !emb')
+        print('[COMAND] !join')
         #Сообщение в системный чат
         dt=datetime.now()
         dt=dt+timedelta(hours=3)
         await client.get_channel(IdChSystem).send('{} вступил в {}.'.format(member.mention, dt.strftime("%H:%M:%S %d %B")))
-        #Создание задержки
-        await asyncio.sleep(1.5)
     async def on_member_remove(self, member):
         await client.get_channel(IdChSystem).send('{} вышел в {}.'.format(member.mention,  dt.strftime("%H:%M:%S %d %B")))
 
