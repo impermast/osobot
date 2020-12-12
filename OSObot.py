@@ -132,7 +132,7 @@ class BotClient(discord.Client):
 #testfunc
         if (message.content.startswith('!test'))and(message.author != self.user):
             print('[COMMAND] !test')
-            await message.channel.send('**Launched**')
+            await message.channel.send('**Launched** v2.0')
         
 #bot respond
         m = message        
