@@ -152,7 +152,12 @@ class BotClient(discord.Client):
            
            await message.channel.send(embed = emb)
 
-
-client = BotClient()
+intents = discord.Intents.default()
+intents.messages=True
+intents.members=True
+intents.guilds=True
+intents.voice_states=True
+            
+client = BotClient(intents=intents)
 client.run(TOKEN)
 
